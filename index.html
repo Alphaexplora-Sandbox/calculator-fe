@@ -4,6 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>calculator-fe</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111318;
+        --panel: #1c1f26;
+        --key: #2a2e37;
+        --key-hover: #353a45;
+        --function: #3d4350;
+        --operator: #f59e0b;
+        --operator-text: #1c1300;
+        --text: #f3f4f6;
+        --muted: #a1a7b3;
+        --focus: #93c5fd;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      /* #root is the flex item; sizing it lets the card fill it below. */
+      #root { width: 100%; max-width: 340px; }
+      .calculator {
+        padding: 20px;
+        border-radius: 24px;
+        background: var(--panel);
+        box-shadow: 0 20px 50px rgb(0 0 0 / 0.45);
+      }
+      .calculator h1 {
+        margin: 0 0 12px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .screen {
+        padding: 8px 4px 16px;
+        text-align: right;
+      }
+      .expression {
+        min-height: 1.5rem;
+        font-size: 1rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .display {
+        display: block;
+        font-size: 2.75rem;
+        font-weight: 300;
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+        overflow-wrap: anywhere;
+      }
+      .keypad {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .keypad button {
+        height: 64px;
+        border: 0;
+        border-radius: 16px;
+        background: var(--key);
+        color: var(--text);
+        font: inherit;
+        font-size: 1.375rem;
+        cursor: pointer;
+        transition: background-color 120ms, transform 80ms;
+      }
+      .keypad button:hover { background: var(--key-hover); }
+      .keypad button:active { transform: scale(0.96); }
+      .keypad button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+      .keypad .function { background: var(--function); }
+      .keypad .operator,
+      .keypad .equals { background: var(--operator); color: var(--operator-text); font-weight: 600; }
+      .keypad .operator:hover,
+      .keypad .equals:hover { filter: brightness(1.1); }
+      .keypad .wide { grid-column: span 2; }
+      @media (prefers-reduced-motion: reduce) {
+        .keypad button { transition: none; }
+        .keypad button:active { transform: none; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
