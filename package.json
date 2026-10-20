@@ -1,0 +1,33 @@
+{
+  "name": "calculator-fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "start": "vite preview --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "eslint": "^9.17.0",
+    "typescript-eslint": "^8.18.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "@types/jest": "^30.0.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "vite": "8.3.0",
+    "@playwright/test": "^1.55.0",
+    "@axe-core/playwright": "^4.10.0"
+  }
+}
